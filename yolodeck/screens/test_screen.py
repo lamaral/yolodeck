@@ -1,5 +1,5 @@
 from yolodeck.screens.base_screen import BaseScreen
-from yolodeck.buttons.clock_button import ClockButton
+from yolodeck.buttons.dummy_button import DummyButton
 
 
 class TestScreen(BaseScreen):
@@ -8,15 +8,15 @@ class TestScreen(BaseScreen):
 
     def initialize(self):
         with self._renderer as r:
-            r\
-                .text('OUTPUT \nNOT FOUND')\
-                .color('red')\
-                .center_vertically()\
-                .center_horizontally()\
-                .font_size(85)\
-                .text_align('center')\
+            r \
+                .text('TEST') \
+                .color('red') \
+                .center_vertically() \
+                .center_horizontally() \
+                .font_size(150) \
+                .text_align('center') \
                 .end()
         return
 
     def screen_buttons(self):
-        self.register_button(14, ClockButton)
+        self.register_button(14, DummyButton)
