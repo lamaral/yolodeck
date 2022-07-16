@@ -29,3 +29,9 @@ class BaseButton:
 
     def released(self):
         pass
+
+    def resume(self):
+        pass
+
+    def suspend(self):
+        pass
