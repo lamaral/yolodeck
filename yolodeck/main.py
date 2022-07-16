@@ -7,6 +7,7 @@ import threading
 from StreamDeck.DeviceManager import DeviceManager
 
 from yolodeck.screen_manager import ScreenManager
+from yolodeck.screens.simple_screen import SimpleScreen
 
 
 def main():
@@ -29,6 +30,9 @@ def main():
     streamdeck = DeviceManager().enumerate()[0]
 
     screen_manager = ScreenManager(streamdeck)
+
+    main_screen = SimpleScreen(0)
+    screen_manager.set_active_screen(main_screen)
 
     # Wait until all application threads have terminated (for this example,
     # this is when all deck handles are closed).

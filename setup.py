@@ -10,5 +10,10 @@ setup(
     license='',
     author='Luiz Amaral',
     author_email='',
-    description=''
+    description='',
+    entry_points={
+        'console_scripts': [
+            'yolodeck=yolodeck.main:main',
+        ],
+    },
 )
