@@ -6,6 +6,8 @@ import threading
 
 from StreamDeck.DeviceManager import DeviceManager
 
+from yolodeck.screen_manager import ScreenManager
+
 
 def main():
     root = logging.getLogger('yolodeck')
@@ -26,6 +28,8 @@ def main():
 
     streamdeck = DeviceManager().enumerate()[0]
 
+    screen_manager = ScreenManager(streamdeck)
+
     # Wait until all application threads have terminated (for this example,
     # this is when all deck handles are closed).
     for t in threading.enumerate():
@@ -36,6 +40,7 @@ def main():
             try:
                 t.join()
             except KeyboardInterrupt as ex:
+                screen_manager.close()
                 streamdeck.close()
 
 
